@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QGridLayout, QHeaderView, QMainWindow,
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QHeaderView, QMainWindow,
     QMenuBar, QPushButton, QSizePolicy, QStatusBar,
-    QTableWidget, QTableWidgetItem, QWidget)
+    QTableView, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -26,18 +26,16 @@ class Ui_MainWindow(object):
         MainWindow.resize(852, 647)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.tableWidget = QTableWidget(self.centralwidget)
-        self.tableWidget.setObjectName(u"tableWidget")
-        self.tableWidget.setGeometry(QRect(270, 110, 501, 371))
         self.pushButton = QPushButton(self.centralwidget)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(50, 140, 161, 31))
-        self.gridLayoutWidget = QWidget(self.centralwidget)
-        self.gridLayoutWidget.setObjectName(u"gridLayoutWidget")
-        self.gridLayoutWidget.setGeometry(QRect(120, 40, 160, 80))
-        self.gridLayout = QGridLayout(self.gridLayoutWidget)
-        self.gridLayout.setObjectName(u"gridLayout")
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
+        self.tableView = QTableView(self.centralwidget)
+        self.tableView.setObjectName(u"tableView")
+        self.tableView.setGeometry(QRect(240, 70, 581, 461))
+        self.tableView.setEditTriggers(QAbstractItemView.EditTrigger.NoEditTriggers)
+        self.tableView.setVerticalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.tableView.setHorizontalScrollMode(QAbstractItemView.ScrollMode.ScrollPerPixel)
+        self.tableView.setSortingEnabled(True)
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
