@@ -30,6 +30,7 @@ class Ui_Form(object):
         self.price = QSpinBox(Form)
         self.price.setObjectName(u"price")
         self.price.setGeometry(QRect(20, 40, 361, 22))
+        self.price.setMaximum(1000000000)
         self.time = QTimeEdit(Form)
         self.time.setObjectName(u"time")
         self.time.setGeometry(QRect(20, 70, 361, 22))

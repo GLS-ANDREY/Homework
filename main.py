@@ -8,13 +8,16 @@ model = QStandardItemModel(0, 3)
 model.setHorizontalHeaderLabels(["Адрес", "Цена", "Тип недвижимости"])
 
 
-def maker(address, price, type):
+def save(address, price, type):
     model.appendRow([])
     row_count = model.rowCount()
     model.setData(model.index(row_count - 1, 0), address)
     model.setData(model.index(row_count - 1, 1), price)
     model.setData(model.index(row_count - 1, 2), type)
 
+
+def prosloika():
+    main2.add(save)
 
 window = QMainWindow()
 window.show()
@@ -24,10 +27,11 @@ mainwindow.setupUi(window)
 
 mainwindow.tableView.setModel(model)
 title = mainwindow.tableView.horizontalHeader()
-maker("Улица Пушкина дом Колотушкина", "G64", "Жило-коммерческо")
-maker("Там где черт ногу сломит", "G64eG64", "Коммерческо-жило")
 
-mainwindow.pushButton.clicked.connect(main2.add)
+mainwindow.pushButton.clicked.connect(prosloika)
+
 for a in range(0, 3):
     title.setSectionResizeMode(a, QHeaderView.ResizeMode.ResizeToContents)
+
+
 creator.exec()
